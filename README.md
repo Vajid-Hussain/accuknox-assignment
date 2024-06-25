@@ -1,6 +1,8 @@
 ## Updated version
 
-func main() { 
+
+
+func main() {
 
 
 	// Create a buffered channel with a queue size of 10
@@ -10,12 +12,18 @@ func main() {
 	var wg sync.WaitGroup
 
     for i := 0; i < 4; i++ {
+
+
 		// Call the function concurrently four times, additionally adding a wait group
 		wg.Add(1)
+
+
 		go func() {
 			// reduce the value by one from the wait group at the end of the execution of goroutine
 			defer wg.Done()
 			// Range over the channel and execute the function
+
+
 			for f := range cnp {
 				f()
 			}
