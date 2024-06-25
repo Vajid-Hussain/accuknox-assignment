@@ -1,12 +1,15 @@
 
+
+## Updated version
+
 func main() {
 	// Create a buffered channel with a queue size of 10
 	cnp := make(chan func(), 10)
 
-	// introduce a wait group
+    // introduce a wait group
 	var wg sync.WaitGroup
 
-	for i := 0; i < 4; i++ {
+    for i := 0; i < 4; i++ {
 		// Call the function concurrently four times, additionally adding a wait group
 		wg.Add(1)
 		go func() {
@@ -19,17 +22,17 @@ func main() {
 		}()
 	}
 
-	// Pass a value to the channel
+    // Pass a value to the channel
 	cnp <- func() {
 		fmt.Println("HERE1")
 	}
 
-	// Close the channel
+    // Close the channel
 	close(cnp)
 
-	// Wait for all goroutines to finish
+    // Wait for all goroutines to finish
 	wg.Wait()
 
-	// Print 'Hello'
+    // Print 'Hello'
 	fmt.Println("Hello")
 }
