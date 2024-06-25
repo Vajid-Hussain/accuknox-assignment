@@ -1,8 +1,6 @@
-
-
 ## Updated version
 
-func main() {
+func main() { `<br>`
 	// Create a buffered channel with a queue size of 10
 	cnp := make(chan func(), 10)
 
